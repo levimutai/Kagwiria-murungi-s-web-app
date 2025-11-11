@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Kagwiria</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Kagwiria Admin</div>
+            <div class="admin-logout">
+                <button onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="admin-dashboard">
+        <div class="container">
+            <h1>Welcome, Kagwiria!</h1>
+            <p>Manage your website content easily</p>
+
+            <div class="admin-grid">
+                <div class="admin-card" onclick="openSection('stories')">
+                    <div class="admin-icon">📝</div>
+                    <h3>Manage Stories</h3>
+                    <p>Add new county stories with photos and videos</p>
+                </div>
+
+                <div class="admin-card" onclick="openSection('book')">
+                    <div class="admin-icon">📚</div>
+                    <h3>Book Updates</h3>
+                    <p>Update book progress and add excerpts</p>
+                </div>
+
+                <div class="admin-card" onclick="openSection('speaking')">
+                    <div class="admin-icon">🎤</div>
+                    <h3>Speaking Content</h3>
+                    <p>Upload videos and manage speaking topics</p>
+                </div>
+
+                <div class="admin-card" onclick="openSection('mentorship')">
+                    <div class="admin-icon">🏍️</div>
+                    <h3>Mentorship Programs</h3>
+                    <p>Add sessions and manage programs</p>
+                </div>
+
+                <div class="admin-card" onclick="openSection('cancer')">
+                    <div class="admin-icon">💗</div>
+                    <h3>Cancer Support</h3>
+                    <p>Manage cancer institute content and donations</p>
+                </div>
+
+                <div class="admin-card" onclick="openSection('settings')">
+                    <div class="admin-icon">⚙️</div>
+                    <h3>Website Settings</h3>
+                    <p>Update contact info and social links</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Management Section -->
+    <section id="stories-section" class="admin-section" style="display:none;">
+        <div class="container">
+            <h2>Add New Story</h2>
+            <form class="admin-form">
+                <div class="form-group">
+                    <label>County Name</label>
+                    <input type="text" placeholder="e.g., Turkana" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Story Title</label>
+                    <input type="text" placeholder="e.g., Land of Endless Horizons" required>
+                </div>
+
+                <div class="form-group">
+                    <label>County Region</label>
+                    <select required>
+                        <option value="">Select Region</option>
+                        <option value="northern">Northern Kenya</option>
+                        <option value="coastal">Coastal Kenya</option>
+                        <option value="central">Central Highlands</option>
+                        <option value="western">Western Kenya</option>
+                        <option value="eastern">Eastern Kenya</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Upload Video (Optional)</label>
+                    <input type="file" accept="video/*">
+                    <small>Upload a video from your county visit</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Upload Photos</label>
+                    <input type="file" accept="image/*" multiple>
+                    <small>Select multiple photos from your trip</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Your Story</label>
+                    <textarea rows="10" placeholder="Write your story here... Share what you experienced, people you met, lessons learned..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Reading Time (minutes)</label>
+                    <input type="number" placeholder="5" min="1">
+                </div>
+
+                <button type="submit" class="admin-btn">Publish Story</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Cancer Support Section -->
+    <section id="cancer-section" class="admin-section" style="display:none;">
+        <div class="container">
+            <h2>Cancer Institute Management</h2>
+            
+            <div class="cancer-tabs">
+                <button class="tab-btn active" onclick="showTab('cancer-content')">Content</button>
+                <button class="tab-btn" onclick="showTab('cancer-donations')">Donations</button>
+            </div>
+
+            <div id="cancer-content" class="tab-content">
+                <form class="admin-form">
+                    <div class="form-group">
+                        <label>Institute Description</label>
+                        <textarea rows="5" placeholder="Describe your cancer support work..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Success Stories</label>
+                        <textarea rows="8" placeholder="Share stories of people you've helped..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Upload Photos</label>
+                        <input type="file" accept="image/*" multiple>
+                    </div>
+
+                    <button type="submit" class="admin-btn">Update Cancer Content</button>
+                </form>
+            </div>
+
+            <div id="cancer-donations" class="tab-content" style="display:none;">
+                <form class="admin-form">
+                    <div class="form-group">
+                        <label>Donation Goal</label>
+                        <input type="number" placeholder="100000" step="1000">
+                        <small>Amount needed for cancer support (KSh)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Current Amount Raised</label>
+                        <input type="number" placeholder="25000" step="100">
+                    </div>
+
+                    <div class="form-group">
+                        <label>M-Pesa Details</label>
+                        <input type="text" placeholder="Paybill Number">
+                        <input type="text" placeholder="Account Number">
+                    </div>
+
+                    <button type="submit" class="admin-btn">Update Donation Info</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Settings Section -->
+    <section id="settings-section" class="admin-section" style="display:none;">
+        <div class="container">
+            <h2>Website Settings</h2>
+            <form class="admin-form">
+                <h3>Contact Information</h3>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" value="kagwiriamurungi7@gmail.com">
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number (Optional)</label>
+                    <input type="tel" value="+254 703 179 314">
+                </div>
+
+                <h3>Social Media Links</h3>
+                <div class="form-group">
+                    <label>Facebook Page</label>
+                    <input type="url" value="https://www.facebook.com/share/1BJnUzMH2o/">
+                </div>
+
+                <div class="form-group">
+                    <label>LinkedIn Profile</label>
+                    <input type="url" value="https://www.linkedin.com/in/kagwiriamurungi">
+                </div>
+
+                <div class="form-group">
+                    <label>Instagram Account</label>
+                    <input type="url" placeholder="https://instagram.com/youraccount">
+                </div>
+
+                <div class="form-group">
+                    <label>TikTok Account</label>
+                    <input type="url" value="https://www.tiktok.com/@kagwiria.murungi5">
+                </div>
+
+                <div class="form-group">
+                    <label>Substack Newsletter</label>
+                    <input type="url" value="https://substack.com/@kagwiriamurungi">
+                </div>
+
+                <h3>Payment Information</h3>
+                <div class="form-group">
+                    <label>M-Pesa Paybill</label>
+                    <input type="text" placeholder="123456">
+                </div>
+
+                <div class="form-group">
+                    <label>M-Pesa Account</label>
+                    <input type="text" placeholder="KAGWIRIA">
+                </div>
+
+                <div class="form-group">
+                    <label>Bank Account</label>
+                    <input type="text" placeholder="Account Number">
+                </div>
+
+                <div class="form-group">
+                    <label>PayPal Email</label>
+                    <input type="email" placeholder="paypal@example.com">
+                </div>
+
+                <button type="submit" class="admin-btn">Save Settings</button>
+            </form>
+        </div>
+    </section>
+
+    <style>
+        .admin-dashboard {
+            padding: 100px 0 50px;
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .admin-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .admin-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .admin-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .admin-card h3 {
+            color: #2c5530;
+            margin-bottom: 15px;
+        }
+
+        .admin-section {
+            padding: 50px 0;
+            background: #f8f9fa;
+        }
+
+        .admin-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c5530;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2c5530;
+        }
+
+        .form-group small {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .admin-btn {
+            background: #2c5530;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .admin-btn:hover {
+            background: #1e3a21;
+        }
+
+        .admin-logout button {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cancer-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            background: white;
+            border: 2px solid #2c5530;
+            color: #2c5530;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .tab-btn.active {
+            background: #2c5530;
+            color: white;
+        }
+
+        .tab-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .admin-form {
+                padding: 25px;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 12px;
+            }
+        }
+    </style>
+
+    <script>
+        function openSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.admin-section').forEach(s => s.style.display = 'none');
+            
+            // Show selected section
+            document.getElementById(section + '-section').style.display = 'block';
+            
+            // Scroll to section
+            document.getElementById(section + '-section').scrollIntoView({behavior: 'smooth'});
+        }
+
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabId).style.display = 'block';
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        function logout() {
+            if(confirm('Are you sure you want to logout?')) {
+                window.location.href = 'index.html';
+            }
+        }
+
+        // Simple form handling (you'll need to connect to a backend)
+        document.querySelectorAll('.admin-form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Content saved successfully! (This will connect to your database)');
+            });
+        });
+    </script>
+
+    <!-- Backend Scripts -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="module" src="backend.js"></script>
+</body>
+</html>

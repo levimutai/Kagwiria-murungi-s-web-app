@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Project - Kagwiria</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Kagwiria</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="book.html">Book Project</a></li>
+                <li><a href="speaking.html">Speaking</a></li>
+                <li><a href="mentorship.html">Mentorship</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>The Book Project</h1>
+            <p>47 Counties, One Journey, Countless Stories</p>
+        </div>
+    </section>
+
+    <section class="book-overview">
+        <div class="container">
+            <div class="book-content">
+                <div class="book-cover">
+                    <div class="placeholder-cover">
+                        <h3>47 COUNTIES</h3>
+                        <p>One Woman's Journey<br>Across Kenya</p>
+                        <small>by Kagwiria</small>
+                    </div>
+                </div>
+                <div class="book-details">
+                    <h2>About the Book</h2>
+                    <p>This book chronicles my motorcycle journey across all 47 counties of Kenya, capturing the diverse landscapes, rich cultures, and inspiring people that make our nation extraordinary.</p>
+                    
+                    <p>Each chapter represents a county, weaving together personal experiences, historical insights, and the lessons learned from thousands of kilometers on the road.</p>
+
+                    <div class="book-stats">
+                        <div class="stat">
+                            <h4>Counties Visited</h4>
+                            <span class="stat-number">12/47</span>
+                        </div>
+                        <div class="stat">
+                            <h4>Chapters Written</h4>
+                            <span class="stat-number">8/47</span>
+                        </div>
+                        <div class="stat">
+                            <h4>Expected Launch</h4>
+                            <span class="stat-number">2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="progress-tracker">
+        <div class="container">
+            <h2>Journey Progress</h2>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 25%"></div>
+            </div>
+            <p class="progress-text">25% Complete - 12 of 47 counties explored</p>
+        </div>
+    </section>
+
+    <section class="book-excerpts">
+        <div class="container">
+            <h2>Book Excerpts</h2>
+            <div class="excerpt-grid">
+                <div class="excerpt-card">
+                    <h3>Chapter 1: Turkana</h3>
+                    <blockquote>"The road to Turkana is not just a path through the desert; it's a journey into the soul of resilience..."</blockquote>
+                    <a href="stories.html" class="read-full">Read Full Story</a>
+                </div>
+                <div class="excerpt-card">
+                    <h3>Chapter 5: Mombasa</h3>
+                    <blockquote>"Where the dhow meets the motorcycle, where ancient trade routes intersect with modern dreams..."</blockquote>
+                    <a href="stories.html" class="read-full">Read Full Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="book-updates">
+        <div class="container">
+            <h2>Latest Updates</h2>
+            <div class="updates-timeline">
+                <div class="update-item">
+                    <div class="update-date">Dec 2024</div>
+                    <div class="update-content">
+                        <h4>Completed Nyeri Chapter</h4>
+                        <p>Just finished writing about my experience in the Central Highlands. The stories from Mount Kenya region are truly inspiring.</p>
+                    </div>
+                </div>
+                <div class="update-item">
+                    <div class="update-date">Nov 2024</div>
+                    <div class="update-content">
+                        <h4>Coastal Counties Research</h4>
+                        <p>Spent two weeks exploring Mombasa, Kilifi, and Kwale. The coastal chapters are taking shape beautifully.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pre-launch">
+        <div class="container">
+            <h2>Be the First to Know</h2>
+            <p>Join the exclusive pre-launch list to get updates, early excerpts, and special launch pricing</p>
+            <form class="prelaunch-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Join Pre-Launch List</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="LinkedIn">💼</a>
+                <a href="#" aria-label="Instagram">📷</a>
+            </div>
+            <p>&copy; 2024 Kagwiria. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        .book-overview {
+            padding: 80px 0;
+        }
+
+        .book-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .placeholder-cover {
+            background: linear-gradient(135deg, #2c5530, #ff6b35);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .placeholder-cover h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .book-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c5530;
+        }
+
+        .progress-tracker {
+            background: #f8f9fa;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #2c5530, #ff6b35);
+            transition: width 0.3s ease;
+        }
+
+        .excerpt-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .excerpt-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .excerpt-card blockquote {
+            font-style: italic;
+            margin: 20px 0;
+            color: #666;
+        }
+
+        .read-full {
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .updates-timeline {
+            margin-top: 40px;
+        }
+
+        .update-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .update-date {
+            font-weight: bold;
+            color: #2c5530;
+        }
+
+        .pre-launch {
+            background: #2c5530;
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .prelaunch-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .prelaunch-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .prelaunch-form button {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .book-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .book-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .update-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .prelaunch-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Kagwiria</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Kagwiria</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="book.html">Book Project</a></li>
+                <li><a href="speaking.html">Speaking</a></li>
+                <li><a href="mentorship.html">Mentorship</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Let's Connect</h1>
+            <p>Ready to collaborate, partner, or just share stories from the road?</p>
+        </div>
+    </section>
+
+    <section class="contact-options">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>General Inquiries</h3>
+                    <p>For collaborations, partnerships, and general questions</p>
+                    <a href="mailto:kagwiriamurungi7@gmail.com" class="contact-link">kagwiriamurungi7@gmail.com</a>
+                    <a href="tel:+254703179314" class="contact-link">+254 703 179 314</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">🎤</div>
+                    <h3>Speaking Engagements</h3>
+                    <p>Invite me to speak at your event or conference</p>
+                    <a href="mailto:kagwiriamurungi7@gmail.com" class="contact-link">kagwiriamurungi7@gmail.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">🏍️</div>
+                    <h3>Mentorship & Training</h3>
+                    <p>Join our riding community and training programs</p>
+                    <a href="mailto:kagwiriamurungi7@gmail.com" class="contact-link">kagwiriamurungi7@gmail.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📚</div>
+                    <h3>Book & Media</h3>
+                    <p>Press inquiries and book-related discussions</p>
+                    <a href="mailto:kagwiriamurungi7@gmail.com" class="contact-link">kagwiriamurungi7@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-intro">
+                    <h2>Send a Message</h2>
+                    <p>Whether you're a fellow rider, potential collaborator, or someone inspired by the journey, I'd love to hear from you.</p>
+                </div>
+
+                <form class="contact-form" onsubmit="handleContactForm(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a topic</option>
+                            <option value="collaboration">Collaboration Opportunity</option>
+                            <option value="speaking">Speaking Invitation</option>
+                            <option value="mentorship">Mentorship Inquiry</option>
+                            <option value="media">Media/Press Inquiry</option>
+                            <option value="book">Book Project</option>
+                            <option value="partnership">Partnership</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Tell me about your project, event, or how we might work together..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-connect">
+        <div class="container">
+            <h2>Follow the Journey</h2>
+            <p>Stay updated with my latest adventures and insights</p>
+            
+            <div class="social-platforms">
+                <a href="https://www.facebook.com/share/1BJnUzMH2o/" class="social-platform">
+                    <div class="platform-icon">📘</div>
+                    <div class="platform-info">
+                        <h4>Facebook</h4>
+                        <p>Daily updates and community discussions</p>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/in/kagwiriamurungi" class="social-platform">
+                    <div class="platform-icon">💼</div>
+                    <div class="platform-info">
+                        <h4>LinkedIn</h4>
+                        <p>Professional insights and speaking updates</p>
+                    </div>
+                </a>
+
+                <a href="https://substack.com/@kagwiriamurungi" class="social-platform">
+                    <div class="platform-icon">✍️</div>
+                    <div class="platform-info">
+                        <h4>Substack</h4>
+                        <p>In-depth stories and newsletter updates</p>
+                    </div>
+                </a>
+
+                <a href="https://www.tiktok.com/@kagwiria.murungi5" class="social-platform">
+                    <div class="platform-icon">🎥</div>
+                    <div class="platform-info">
+                        <h4>TikTok</h4>
+                        <p>Short videos from the road and adventures</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="response-time">
+        <div class="container">
+            <div class="response-info">
+                <h3>Response Time</h3>
+                <p>I typically respond to messages within 24-48 hours. If you need an urgent response, please mention it in your message subject line.</p>
+                
+                <div class="availability">
+                    <h4>Current Status</h4>
+                    <div class="status-indicator">
+                        <span class="status-dot available"></span>
+                        <span>Available for new projects and collaborations</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1BJnUzMH2o/" aria-label="Facebook">📘</a>
+                <a href="https://www.linkedin.com/in/kagwiriamurungi" aria-label="LinkedIn">💼</a>
+                <a href="https://www.tiktok.com/@kagwiria.murungi5" aria-label="TikTok">🎥</a>
+                <a href="https://substack.com/@kagwiriamurungi" aria-label="Substack">✍️</a>
+            </div>
+            <p>&copy; 2024 Kagwiria. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        .contact-options {
+            padding: 80px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            color: #2c5530;
+            margin-bottom: 15px;
+        }
+
+        .contact-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .contact-link {
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .form-intro h2 {
+            color: #2c5530;
+            margin-bottom: 15px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c5530;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2c5530;
+        }
+
+        .submit-btn {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #e55a2b;
+        }
+
+        .social-connect {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .social-connect h2 {
+            color: #2c5530;
+            margin-bottom: 15px;
+        }
+
+        .social-platforms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .social-platform {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s;
+        }
+
+        .social-platform:hover {
+            transform: translateY(-3px);
+        }
+
+        .platform-icon {
+            font-size: 2.5rem;
+        }
+
+        .platform-info h4 {
+            color: #2c5530;
+            margin-bottom: 5px;
+        }
+
+        .platform-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .response-time {
+            background: #2c5530;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .response-info h3 {
+            margin-bottom: 20px;
+        }
+
+        .availability {
+            margin-top: 30px;
+        }
+
+        .availability h4 {
+            margin-bottom: 15px;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .status-dot.available {
+            background: #28a745;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-platform {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+        }
+    </style>
+
+    <!-- Backend Scripts -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="module" src="backend.js"></script>
+</body>
+</html>

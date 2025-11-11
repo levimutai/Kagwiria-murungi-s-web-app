@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Kagwiria - One Account, Multiple Causes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Kagwiria</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="book.html">Book Project</a></li>
+                <li><a href="speaking.html">Speaking</a></li>
+                <li><a href="mentorship.html">Mentorship</a></li>
+                <li><a href="support-updated.html">Support</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Support Kagwiria's Mission</h1>
+            <p>Choose your cause - All funds go to one secure account</p>
+        </div>
+    </section>
+
+    <section class="support-options">
+        <div class="container">
+            <div class="support-grid">
+                <div class="support-card featured">
+                    <div class="support-icon">🏍️</div>
+                    <h3>Support the Ride</h3>
+                    <p>Help fuel Kagwiria's journey across Kenya's 47 counties</p>
+                    <div class="price-input">
+                        <input type="number" placeholder="Any amount" min="100" step="100">
+                        <span>KSh</span>
+                    </div>
+                    <ul>
+                        <li>Fuel and travel expenses</li>
+                        <li>Your name in travel stories</li>
+                        <li>Monthly journey updates</li>
+                        <li>Behind-the-scenes content</li>
+                    </ul>
+                    <button class="support-btn" onclick="handleDonation(this, 'ride-support')">Support the Ride</button>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">🏘️</div>
+                    <h3>Community Projects</h3>
+                    <p>Support local community initiatives and development projects</p>
+                    <div class="price-input">
+                        <input type="number" placeholder="Any amount" min="100" step="100">
+                        <span>KSh</span>
+                    </div>
+                    <ul>
+                        <li>Local community development</li>
+                        <li>Project impact reports</li>
+                        <li>Community thank you messages</li>
+                        <li>Progress updates</li>
+                    </ul>
+                    <button class="support-btn" onclick="handleDonation(this, 'community')">Support Community</button>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">💗</div>
+                    <h3>Cancer Patient Support</h3>
+                    <p>Direct support for cancer patients through Kagwiria's institute</p>
+                    <div class="price-input">
+                        <input type="number" placeholder="Any amount helps" min="100" step="100">
+                        <span>KSh</span>
+                    </div>
+                    <ul>
+                        <li>Direct help to cancer patients</li>
+                        <li>Medical assistance</li>
+                        <li>Monthly impact reports</li>
+                        <li>Thank you from beneficiaries</li>
+                    </ul>
+                    <button class="support-btn" onclick="handleDonation(this, 'cancer-support')">Support Cancer Patients</button>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">☕</div>
+                    <h3>Buy Kagwiria a Coffee</h3>
+                    <p>Show appreciation for her inspiring work and stories</p>
+                    <div class="price-input">
+                        <input type="number" placeholder="Any amount" min="100" step="100">
+                        <span>KSh</span>
+                    </div>
+                    <ul>
+                        <li>Personal thank you message</li>
+                        <li>Name in supporters list</li>
+                        <li>Good karma points!</li>
+                    </ul>
+                    <button class="support-btn" onclick="handleDonation(this, 'coffee')">Buy Coffee</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="payment-info">
+        <div class="container">
+            <h2>One Account - All Causes</h2>
+            <p>All donations go to Kagwiria's primary account. She allocates funds based on your chosen category.</p>
+            
+            <div class="payment-grid">
+                <div class="payment-option primary">
+                    <h4>🏦 Primary Bank Account</h4>
+                    <p>Bank: <strong>[Bank Name]</strong></p>
+                    <p>Account: <strong>[Account Number]</strong></p>
+                    <p>Name: <strong>Kagwiria Murungi</strong></p>
+                    <small>For local supporters</small>
+                </div>
+                
+                <div class="payment-option">
+                    <h4>💳 PayPal (International)</h4>
+                    <p>Email: <strong>[PayPal Email]</strong></p>
+                    <p>Linked to primary account</p>
+                    <button class="paypal-btn" onclick="openPayPal()">Donate via PayPal</button>
+                    <small>For international supporters</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="category-tracking">
+        <div class="container">
+            <h2>Fund Allocation by Category</h2>
+            <div class="allocation-grid">
+                <div class="allocation-item">
+                    <div class="category-icon">🏍️</div>
+                    <h4>Ride Support</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 35%"></div>
+                    </div>
+                    <p>KSh 45,000 raised</p>
+                </div>
+                
+                <div class="allocation-item">
+                    <div class="category-icon">🏘️</div>
+                    <h4>Community Projects</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 25%"></div>
+                    </div>
+                    <p>KSh 32,000 raised</p>
+                </div>
+                
+                <div class="allocation-item">
+                    <div class="category-icon">💗</div>
+                    <h4>Cancer Support</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%"></div>
+                    </div>
+                    <p>KSh 78,000 raised</p>
+                </div>
+                
+                <div class="allocation-item">
+                    <div class="category-icon">☕</div>
+                    <h4>Coffee Fund</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 15%"></div>
+                    </div>
+                    <p>KSh 12,000 raised</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1BJnUzMH2o/" aria-label="Facebook">📘</a>
+                <a href="https://www.linkedin.com/in/kagwiriamurungi" aria-label="LinkedIn">💼</a>
+                <a href="https://www.tiktok.com/@kagwiria.murungi5" aria-label="TikTok">🎥</a>
+                <a href="https://substack.com/@kagwiriamurungi" aria-label="Substack">✍️</a>
+            </div>
+            <p>&copy; 2024 Kagwiria. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        .support-options {
+            padding: 80px 0;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .support-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .support-card.featured {
+            border: 3px solid #ff6b35;
+            transform: scale(1.05);
+        }
+
+        .support-card.featured::before {
+            content: "MOST POPULAR";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff6b35;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .support-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .support-card h3 {
+            color: #2c5530;
+            margin-bottom: 15px;
+        }
+
+        .price-input {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .price-input input {
+            border: 2px solid #2c5530;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            width: 150px;
+        }
+
+        .price-input span {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c5530;
+        }
+
+        .support-btn {
+            background: #2c5530;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .payment-info {
+            background: #f8f9fa;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .payment-option {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .payment-option.primary {
+            border: 3px solid #2c5530;
+        }
+
+        .payment-option h4 {
+            color: #2c5530;
+            margin-bottom: 15px;
+        }
+
+        .paypal-btn {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .category-tracking {
+            padding: 80px 0;
+        }
+
+        .allocation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .allocation-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #2c5530, #ff6b35);
+            transition: width 0.3s ease;
+        }
+    </style>
+
+    <script>
+        function handleDonation(button, category) {
+            const card = button.closest('.support-card');
+            const amountInput = card.querySelector('input[type="number"]');
+            const amount = amountInput.value;
+            
+            if (!amount || amount <= 0) {
+                alert('Please enter a valid amount');
+                return;
+            }
+            
+            const categories = {
+                'ride-support': 'Support the Ride',
+                'community': 'Community Projects',
+                'cancer-support': 'Cancer Patient Support',
+                'coffee': 'Buy Coffee'
+            };
+            
+            const categoryName = categories[category];
+            
+            if (confirm(`Donate KSh ${amount} for ${categoryName}?\\n\\nAll funds go to Kagwiria's primary account.`)) {
+                alert(`Thank you for your KSh ${amount} donation for ${categoryName}!\\n\\nPayment Details:\\n- Bank Account: [Account Number]\\n- PayPal: [PayPal Email]\\n\\nKagwiria will allocate funds to ${categoryName}.`);
+                amountInput.value = '';
+            }
+        }
+        
+        function openPayPal() {
+            alert('Opening PayPal for international donations...\\n\\nPayPal Email: [PayPal Email]\\n\\nAll funds go to Kagwiria\\'s primary account.');
+        }
+    </script>
+</body>
+</html>

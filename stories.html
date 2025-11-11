@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories - Kagwiria</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Kagwiria</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="book.html">Book Project</a></li>
+                <li><a href="speaking.html">Speaking</a></li>
+                <li><a href="mentorship.html">Mentorship</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Journey Stories</h1>
+            <p>Tales from the road across Kenya's 47 counties</p>
+        </div>
+    </section>
+
+    <section class="stories-filter">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Stories</button>
+                <button class="filter-btn" data-filter="northern">Northern Kenya</button>
+                <button class="filter-btn" data-filter="coastal">Coastal Kenya</button>
+                <button class="filter-btn" data-filter="central">Central Highlands</button>
+                <button class="filter-btn" data-filter="western">Western Kenya</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="stories-grid">
+        <div class="container">
+            <div class="empty-blog">
+                <div class="empty-icon">✍️</div>
+                <h3>Stories Coming Soon</h3>
+                <p>Kagwiria will be sharing her travel stories and experiences from across Kenya's 47 counties. Check back soon for amazing adventures!</p>
+                <div class="admin-note">
+                    <p><strong>For Kagwiria:</strong> <a href="login.html">Login to Admin</a> to start adding your stories</p>
+                </div>
+            </div>
+            
+            <!-- Stories will be dynamically loaded here by the admin system -->
+            <div id="published-stories" class="story-cards"></div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <h3>Never Miss a Story</h3>
+            <p>Get notified when I publish new county adventures</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="LinkedIn">💼</a>
+                <a href="#" aria-label="Instagram">📷</a>
+            </div>
+            <p>&copy; 2024 Kagwiria. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        .page-header {
+            background: #2c5530;
+            color: white;
+            text-align: center;
+            padding: 120px 0 60px;
+        }
+
+        .stories-filter {
+            padding: 40px 0;
+            background: #f8f9fa;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 2px solid #2c5530;
+            color: #2c5530;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #2c5530;
+            color: white;
+        }
+
+        .story-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .story-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .story-image {
+            height: 200px;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .placeholder-image {
+            font-size: 3rem;
+        }
+
+        .story-content {
+            padding: 25px;
+        }
+
+        .story-content h3 {
+            color: #2c5530;
+            margin-bottom: 10px;
+        }
+
+        .story-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .story-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .read-time {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .share-btn {
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .empty-blog {
+            text-align: center;
+            padding: 80px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .empty-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .empty-blog h3 {
+            color: #2c5530;
+            margin-bottom: 15px;
+        }
+
+        .admin-note {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #ff6b35;
+        }
+
+        .admin-note a {
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+
+    <script type="module" src="blog-system.js"></script>
+</body>
+</html>

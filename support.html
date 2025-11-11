@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support the Journey - Kagwiria</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Kagwiria</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="book.html">Book Project</a></li>
+                <li><a href="speaking.html">Speaking</a></li>
+                <li><a href="mentorship.html">Mentorship</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Support Cancer Patients</h1>
+            <p>Help Kagwiria support cancer patients through her institute</p>
+        </div>
+    </section>
+
+    <section class="support-options">
+        <div class="container">
+            <div class="support-grid">
+                <div class="support-card featured">
+                    <div class="support-icon">⛽</div>
+                    <h3>Sponsor a Ride</h3>
+                    <p>Fund fuel, accommodation, and meals for exploring a specific county</p>
+                    <div class="price-input">
+                        <input type="number" placeholder="Enter amount" min="1000" step="500">
+                        <span>KSh</span>
+                    </div>
+                    <ul>
+                        <li>Your name in county story</li>
+                        <li>Dedicated social media shoutout</li>
+                        <li>Photo from your sponsored county</li>
+                        <li>Early access to book chapter</li>
+                    </ul>
+                    <button class="support-btn" onclick="handleDonation(this, 'cancer-support')">Support Cancer Patients</button>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">☕</div>
+                    <h3>Buy Me a Coffee</h3>
+                    <p>Support with a small contribution for fuel and refreshments</p>
+                    <div class="price-input">
+                        <input type="number" placeholder="Any amount" min="100" step="100">
+                        <span>KSh</span>
+                    </div>
+                    <ul>
+                        <li>Thank you message</li>
+                        <li>Name in monthly supporters list</li>
+                        <li>Good karma points!</li>
+                    </ul>
+                    <button class="support-btn" onclick="handleDonation(this, 'coffee')">Buy Coffee</button>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">🛠️</div>
+                    <h3>Maintenance Fund</h3>
+                    <p>Help keep the motorcycle running smoothly across rough terrains</p>
+                    <div class="price-input">
+                        <input type="number" placeholder="Enter amount" min="1000" step="500">
+                        <span>KSh</span>
+                    </div>
+                    <ul>
+                        <li>Monthly progress updates</li>
+                        <li>Behind-the-scenes content</li>
+                        <li>Maintenance tips and insights</li>
+                    </ul>
+                    <button class="support-btn" onclick="handleDonation(this, 'research')">Support Research</button>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">📚</div>
+                    <h3>Book Project Fund</h3>
+                    <p>Support the writing, editing, and publishing of the book</p>
+                    <div class="price-input">
+                        <input type="number" placeholder="Enter amount" min="500" step="250">
+                        <span>KSh</span>
+                    </div>
+                    <ul>
+                        <li>Pre-order discount</li>
+                        <li>Signed copy when published</li>
+                        <li>Acknowledgment in book</li>
+                    </ul>
+                    <button class="support-btn" onclick="handleDonation(this, 'institute')">Support Institute</button>
+                </div>
+
+                <div class="support-card cancer-support">
+                    <div class="support-icon">💗</div>
+                    <h3>Cancer Support Fund</h3>
+                    <p>Help cancer patients through Kagwiria's cancer institute</p>
+                    <div class="price-input">
+                        <input type="number" placeholder="Any amount helps" min="100" step="100">
+                        <span>KSh</span>
+                    </div>
+                    <ul>
+                        <li>Direct help to cancer patients</li>
+                        <li>Monthly impact reports</li>
+                        <li>Thank you from beneficiaries</li>
+                        <li>Tax-deductible receipt</li>
+                    </ul>
+                    <button class="support-btn" onclick="handleDonation(this, 'cancer-main')">Support Cancer Patients</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact-tracker">
+        <div class="container">
+            <h2>Your Impact</h2>
+            <div class="impact-stats">
+                <div class="impact-stat">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Counties Sponsored</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="stat-number">47</div>
+                    <div class="stat-label">Coffee Supporters</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="stat-number">KSh 125K</div>
+                    <div class="stat-label">Total Raised</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="stat-number">35</div>
+                    <div class="stat-label">Remaining Counties</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="payment-methods">
+        <div class="container">
+            <h2>How to Support</h2>
+            <div class="payment-grid">
+                <div class="payment-option">
+                    <h4>📱 M-Pesa</h4>
+                    <p>Paybill: <strong>123456</strong></p>
+                    <p>Account: <strong>KAGWIRIA</strong></p>
+                </div>
+                <div class="payment-option">
+                    <h4>🏦 Bank Transfer</h4>
+                    <p>Bank: KCB Bank</p>
+                    <p>Account: <strong>1234567890</strong></p>
+                </div>
+                <div class="payment-option">
+                    <h4>💳 PayPal</h4>
+                    <p>International supporters</p>
+                    <button class="paypal-btn">Donate via PayPal</button>
+                </div>
+                <div class="payment-option">
+                    <h4>☕ Buy Me a Coffee</h4>
+                    <p>Quick and easy support</p>
+                    <button class="coffee-btn">buymeacoffee.com/kagwiria</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="supporters">
+        <div class="container">
+            <h2>Amazing Supporters</h2>
+            <div class="supporters-grid">
+                <div class="supporter-category">
+                    <h3>🏍️ County Sponsors</h3>
+                    <div class="supporter-list">
+                        <span class="supporter">John M. - Turkana</span>
+                        <span class="supporter">Sarah K. - Mombasa</span>
+                        <span class="supporter">David O. - Nyeri</span>
+                    </div>
+                </div>
+                <div class="supporter-category">
+                    <h3>☕ Coffee Supporters</h3>
+                    <div class="supporter-list">
+                        <span class="supporter">Grace W.</span>
+                        <span class="supporter">Peter M.</span>
+                        <span class="supporter">Mary N.</span>
+                        <span class="supporter">James K.</span>
+                        <span class="supporter">+43 others</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="transparency">
+        <div class="container">
+            <h2>Transparency Promise</h2>
+            <p>Every contribution goes directly toward the journey. I share monthly updates showing exactly how funds are used - from fuel receipts to accommodation costs. Your support makes this dream possible, and you deserve to see the impact.</p>
+            
+            <div class="expense-breakdown">
+                <h3>Typical County Visit Costs:</h3>
+                <div class="expense-item">
+                    <span>Fuel (round trip)</span>
+                    <span>KSh 8,000</span>
+                </div>
+                <div class="expense-item">
+                    <span>Accommodation (2 nights)</span>
+                    <span>KSh 4,000</span>
+                </div>
+                <div class="expense-item">
+                    <span>Meals & refreshments</span>
+                    <span>KSh 2,000</span>
+                </div>
+                <div class="expense-item">
+                    <span>Local guide/activities</span>
+                    <span>KSh 1,000</span>
+                </div>
+                <div class="expense-total">
+                    <span><strong>Total per county</strong></span>
+                    <span><strong>KSh 15,000</strong></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="LinkedIn">💼</a>
+                <a href="#" aria-label="Instagram">📷</a>
+            </div>
+            <p>&copy; 2024 Kagwiria. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        .support-options {
+            padding: 80px 0;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .support-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .support-card.featured {
+            border: 3px solid #ff6b35;
+            transform: scale(1.05);
+        }
+
+        .support-card.featured::before {
+            content: "MOST POPULAR";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff6b35;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .support-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .support-card h3 {
+            color: #2c5530;
+            margin-bottom: 15px;
+        }
+
+        .price-input {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .price-input input {
+            border: 2px solid #2c5530;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            width: 150px;
+        }
+
+        .price-input span {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c5530;
+        }
+
+        .cancer-support {
+            border: 2px solid #ff69b4;
+        }
+
+        .cancer-support .support-icon {
+            color: #ff69b4;
+        }
+
+        .support-card ul {
+            text-align: left;
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .support-card li {
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        .support-btn {
+            background: #2c5530;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .impact-tracker {
+            background: #f8f9fa;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .impact-stat {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c5530;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .payment-methods {
+            padding: 80px 0;
+        }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .payment-option {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .payment-option h4 {
+            color: #2c5530;
+            margin-bottom: 15px;
+        }
+
+        .paypal-btn, .coffee-btn {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .supporters {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .supporters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .supporter-category h3 {
+            color: #2c5530;
+            margin-bottom: 20px;
+        }
+
+        .supporter-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .supporter {
+            background: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .transparency {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .expense-breakdown {
+            max-width: 500px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .expense-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .expense-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-top: 2px solid #2c5530;
+            margin-top: 10px;
+            color: #2c5530;
+        }
+
+        @media (max-width: 768px) {
+            .support-card.featured {
+                transform: none;
+            }
+            
+            .impact-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .price-input {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .price-input input {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <script>
+        function handleDonation(button, type) {
+            const card = button.closest('.support-card');
+            const amountInput = card.querySelector('input[type="number"]');
+            const amount = amountInput.value;
+            
+            if (!amount || amount <= 0) {
+                alert('Please enter a valid amount');
+                return;
+            }
+            
+            const donationTypes = {
+                'cancer-support': 'Cancer Patient Support',
+                'coffee': 'Buy Coffee',
+                'research': 'Cancer Research',
+                'institute': 'Cancer Institute',
+                'cancer-main': 'Cancer Patient Support'
+            };
+            
+            const donationType = donationTypes[type];
+            
+            if (confirm(`Donate KSh ${amount} for ${donationType}?\n\nYou will be redirected to payment options.`)) {
+                // Here you would integrate with actual payment systems
+                alert(`Thank you for your KSh ${amount} donation for ${donationType}!\n\nPayment options:\n- M-Pesa: 123456 (Account: KAGWIRIA)\n- Bank Transfer\n- PayPal`);
+                amountInput.value = '';
+            }
+        }
+        
+        // Make payment buttons clickable
+        document.addEventListener('DOMContentLoaded', function() {
+            const paypalBtn = document.querySelector('.paypal-btn');
+            const coffeeBtn = document.querySelector('.coffee-btn');
+            
+            if (paypalBtn) {
+                paypalBtn.onclick = function() {
+                    alert('Redirecting to PayPal for international donations...');
+                };
+            }
+            
+            if (coffeeBtn) {
+                coffeeBtn.onclick = function() {
+                    window.open('https://buymeacoffee.com/kagwiria', '_blank');
+                };
+            }
+        });
+    </script>
+</body>
+</html>

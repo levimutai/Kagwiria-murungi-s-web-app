@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kagwiria - Journey Across Kenya</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Kagwiria</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="book.html">Book Project</a></li>
+                <li><a href="speaking.html">Speaking</a></li>
+                <li><a href="mentorship.html">Mentorship</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Riding Through Kenya's Heart</h1>
+            <p>One county at a time, one story at a time</p>
+            <a href="stories.html" class="cta-button">Follow My Journey</a>
+        </div>
+    </header>
+
+    <section class="about">
+        <div class="container">
+            <h2>About Kagwiria</h2>
+            <p>Motorcycle rider, storyteller, and mentor on a mission to explore all 47 counties of Kenya. Through every mile, I'm documenting the beauty, culture, and spirit of our nation while inspiring others to chase their dreams.</p>
+        </div>
+    </section>
+
+    <!-- Quick Post Section for Kagwiria -->
+    <section class="quick-post" id="quickPost" style="display:none;">
+        <div class="container">
+            <div class="post-card">
+                <div class="post-header">
+                    <div class="profile-pic">👩‍🦱</div>
+                    <div class="post-info">
+                        <h4>Kagwiria Murungi</h4>
+                        <p>Share your latest adventure...</p>
+                    </div>
+                </div>
+                <form class="quick-post-form" onsubmit="handleQuickPost(event)">
+                    <textarea placeholder="What's happening on your journey, Kagwiria?" rows="3" name="content" required></textarea>
+                    
+                    <div class="post-options">
+                        <label class="file-upload">
+                            📷 Photo
+                            <input type="file" accept="image/*" multiple name="photos">
+                        </label>
+                        <label class="file-upload">
+                            🎥 Video
+                            <input type="file" accept="video/*" name="video">
+                        </label>
+                        <select name="county">
+                            <option value="">Select County</option>
+                            <option value="nairobi">Nairobi</option>
+                            <option value="mombasa">Mombasa</option>
+                            <option value="turkana">Turkana</option>
+                            <option value="nyeri">Nyeri</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="post-btn">Share Story</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Stories Feed -->
+    <section class="stories-feed">
+        <div class="container">
+            <h2>Latest Stories</h2>
+            <div id="stories-feed" class="feed-container">
+                <!-- Stories will load here -->
+            </div>
+            <div class="load-more">
+                <button onclick="loadMoreStories()" class="load-more-btn">Load More Stories</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Journey Across Kenya</h3>
+                    <p>Follow my rides through all 47 counties, capturing stories and experiences from every corner of our beautiful nation.</p>
+                    <a href="stories.html">Read Stories</a>
+                </div>
+                <div class="feature-card">
+                    <h3>Book Project</h3>
+                    <p>My upcoming book chronicles this incredible journey, sharing the lessons learned and people met along the way.</p>
+                    <a href="book.html">Learn More</a>
+                </div>
+                <div class="feature-card">
+                    <h3>Mentorship</h3>
+                    <p>Empowering fellow riders through training, webinars, and sharing the knowledge gained from thousands of kilometers on the road.</p>
+                    <a href="mentorship.html">Join Community</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="newsletter">
+        <div class="container">
+            <h3>Stay Connected</h3>
+            <p>Get updates on my journey, book progress, and upcoming events</p>
+            <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1BJnUzMH2o/" aria-label="Facebook">📘</a>
+                <a href="https://www.linkedin.com/in/kagwiriamurungi" aria-label="LinkedIn">💼</a>
+                <a href="https://www.tiktok.com/@kagwiria.murungi5" aria-label="TikTok">🎥</a>
+                <a href="https://substack.com/@kagwiriamurungi" aria-label="Substack">✍️</a>
+            </div>
+            <p>&copy; 2024 Kagwiria. All rights reserved.</p>
+        </div>
+    </footer>
+    <style>
+        /* Quick Post Styles */
+        .quick-post {
+            padding: 40px 0;
+            background: #f8f9fa;
+        }
+
+        .post-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .profile-pic {
+            width: 50px;
+            height: 50px;
+            background: #2c5530;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .post-info h4 {
+            margin: 0;
+            color: #2c5530;
+        }
+
+        .quick-post-form textarea {
+            width: 100%;
+            border: none;
+            resize: none;
+            font-size: 1.1rem;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            margin-bottom: 15px;
+        }
+
+        .post-options {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .file-upload {
+            background: #e9ecef;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .file-upload input {
+            display: none;
+        }
+
+        .post-btn {
+            background: #2c5530;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .stories-feed {
+            padding: 60px 0;
+        }
+
+        .feed-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .story-post {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .admin-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #2c5530;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+
+    <script>
+        window.handleNewsletter = function(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            alert('Thank you for subscribing! We\'ll keep you updated on the journey.');
+            event.target.reset();
+        };
+
+        window.handleQuickPost = function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const content = formData.get('content');
+            const county = formData.get('county');
+            
+            // Create story post in feed
+            const feedContainer = document.getElementById('stories-feed');
+            const storyPost = document.createElement('div');
+            storyPost.className = 'story-post';
+            storyPost.innerHTML = `
+                <div class="story-header">
+                    <div class="profile-pic">👩🦱</div>
+                    <div>
+                        <h4>Kagwiria Murungi</h4>
+                        <p class="story-meta">Just now • ${county || 'Kenya'}</p>
+                    </div>
+                </div>
+                <div class="story-content">${content}</div>
+                <div class="story-actions">
+                    <button class="action-btn" onclick="likeStory(this)">❤️ Like</button>
+                    <button class="action-btn" onclick="commentStory(this)">💬 Comment</button>
+                    <button class="action-btn" onclick="shareStory(this)">🔄 Share</button>
+                </div>
+            `;
+            
+            feedContainer.insertBefore(storyPost, feedContainer.firstChild);
+            event.target.reset();
+            alert('Story posted successfully!');
+        };
+
+        function toggleAdminMode() {
+            const quickPost = document.getElementById('quickPost');
+            if (quickPost.style.display === 'none') {
+                quickPost.style.display = 'block';
+            } else {
+                quickPost.style.display = 'none';
+            }
+        }
+
+        function likeStory(btn) {
+            btn.style.color = '#ff6b35';
+            btn.innerHTML = '❤️ Liked';
+        }
+
+        function commentStory(btn) {
+            const comment = prompt('Write your comment:');
+            if (comment) {
+                alert('Comment added: ' + comment);
+            }
+        }
+
+        function shareStory(btn) {
+            alert('Story shared!');
+        }
+
+        function loadMoreStories() {
+            alert('Loading more stories...');
+        }
+    </script>
+
+    <!-- Admin Toggle Button -->
+    <button class="admin-toggle" onclick="toggleAdminMode()" title="Toggle Admin Mode">✏️</button>
+
+</body>
+</html>
