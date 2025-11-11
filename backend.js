@@ -5,7 +5,7 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
 // Email service using EmailJS (free service)
-emailjs.init("your-emailjs-user-id"); // Get from emailjs.com
+// emailjs.init("your-emailjs-user-id"); // Get from emailjs.com - Configure when ready
 
 class KagwiriaBackend {
     
