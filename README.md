@@ -1,14 +1,14 @@
-# 🏍️ Kagwiria's Digital Journey - Website Overview
+# Kagwiria's Digital Journey - Website Overview
 
-## 🌟 **What We've Built for You**
+## **What We've Built for You**
 
 A complete digital ecosystem where you can share your journey across Kenya's 47 counties, support cancer patients, and build your community - all in one beautiful website!
 
 ---
 
-## 🎯 **Your Website Features**
+# **Your Website Features**
 
-### **📱 Facebook-Style Homepage**
+# Facebook-Style Homepage**
 - **Post stories instantly** - Click the ✏️ button (bottom right)
 - **Upload photos & videos** - Share your adventures with one click
 - **Live story feed** - Your posts appear immediately like Facebook
@@ -43,7 +43,7 @@ A complete digital ecosystem where you can share your journey across Kenya's 47 
 
 ---
 
-## 🚀 **How to Use Your Website**
+# **How to Use Your Website**
 
 ### **For You (Kagwiria):**
 
@@ -77,7 +77,7 @@ A complete digital ecosystem where you can share your journey across Kenya's 47 
 
 ---
 
-## 💳 **Payment System**
+# **Payment System**
 
 ### **How It Works:**
 1. **Supporters choose** donation category
@@ -92,7 +92,7 @@ A complete digital ecosystem where you can share your journey across Kenya's 47 
 
 ---
 
-## 🌐 **Your Website Pages**
+# **Your Website Pages**
 
 1. **🏠 Homepage** - Facebook-style posting & story feed
 2. **📖 Stories** - Your travel blog with county adventures  
@@ -104,7 +104,7 @@ A complete digital ecosystem where you can share your journey across Kenya's 47 
 
 ---
 
-## 📱 **Your Social Media Integration**
+# **Your Social Media Integration**
 
 **Connected Accounts:**
 - 📘 **Facebook:** https://www.facebook.com/share/1BJnUzMH2o/
