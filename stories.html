@@ -219,6 +219,38 @@
         }
     </style>
 
-    <script type="module" src="blog-system.js"></script>
+    <script>
+        // Simple blog system without module imports
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Stories page loaded successfully');
+            
+            // Filter functionality
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter stories (when they exist)
+                    const stories = document.querySelectorAll('.story-card');
+                    stories.forEach(story => {
+                        if (filter === 'all' || story.getAttribute('data-category') === filter) {
+                            story.style.display = 'block';
+                        } else {
+                            story.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Load stories function (simplified)
+            window.loadStories = function() {
+                console.log('Loading stories...');
+                // This will be connected to Firebase later
+            };
+        });
+    </script>
 </body>
 </html>

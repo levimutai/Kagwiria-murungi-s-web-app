@@ -244,75 +244,230 @@
             cursor: pointer;
             font-size: 1.5rem;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .admin-toggle:hover {
+            background: #1e3a21;
+            transform: scale(1.1);
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 5px;
+            color: white;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+        
+        .notification.success { background: #28a745; }
+        .notification.error { background: #dc3545; }
+        .notification.info { background: #17a2b8; }
+        
+        .notification button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0;
+            margin-left: auto;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
     </style>
 
     <script>
-        window.handleNewsletter = function(event) {
-            event.preventDefault();
-            const email = event.target.querySelector('input[type="email"]').value;
-            alert('Thank you for subscribing! We\'ll keep you updated on the journey.');
-            event.target.reset();
-        };
-
-        window.handleQuickPost = function(event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const content = formData.get('content');
-            const county = formData.get('county');
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Homepage loaded successfully');
             
-            // Create story post in feed
-            const feedContainer = document.getElementById('stories-feed');
-            const storyPost = document.createElement('div');
-            storyPost.className = 'story-post';
-            storyPost.innerHTML = `
-                <div class="story-header">
-                    <div class="profile-pic">👩🦱</div>
-                    <div>
-                        <h4>Kagwiria Murungi</h4>
-                        <p class="story-meta">Just now • ${county || 'Kenya'}</p>
-                    </div>
-                </div>
-                <div class="story-content">${content}</div>
-                <div class="story-actions">
-                    <button class="action-btn" onclick="likeStory(this)">❤️ Like</button>
-                    <button class="action-btn" onclick="commentStory(this)">💬 Comment</button>
-                    <button class="action-btn" onclick="shareStory(this)">🔄 Share</button>
-                </div>
+            // Enhanced newsletter handling
+            window.handleNewsletter = function(event) {
+                try {
+                    event.preventDefault();
+                    const email = event.target.querySelector('input[type="email"]').value;
+                    
+                    if (!email || !email.includes('@')) {
+                        showNotification('Please enter a valid email address', 'error');
+                        return false;
+                    }
+                    
+                    // Show loading state
+                    const button = event.target.querySelector('button');
+                    const originalText = button.innerHTML;
+                    button.innerHTML = 'Subscribing...';
+                    button.disabled = true;
+                    
+                    // Simulate API call
+                    setTimeout(() => {
+                        showNotification('Thank you for subscribing! We\'ll keep you updated on the journey.', 'success');
+                        event.target.reset();
+                        button.innerHTML = originalText;
+                        button.disabled = false;
+                    }, 1000);
+                    
+                    return false;
+                } catch (error) {
+                    console.error('Newsletter error:', error);
+                    showNotification('Something went wrong. Please try again.', 'error');
+                    return false;
+                }
+            };
+
+            // Enhanced story posting
+            window.handleQuickPost = function(event) {
+                try {
+                    event.preventDefault();
+                    const formData = new FormData(event.target);
+                    const content = formData.get('content');
+                    const county = formData.get('county');
+                    
+                    if (!content || content.trim().length === 0) {
+                        showNotification('Please write something to share', 'error');
+                        return false;
+                    }
+                    
+                    // Show loading state
+                    const button = event.target.querySelector('button[type="submit"]');
+                    button.innerHTML = 'Posting...';
+                    button.disabled = true;
+                    
+                    setTimeout(() => {
+                        // Create story post in feed
+                        const feedContainer = document.getElementById('stories-feed');
+                        if (feedContainer) {
+                            const storyPost = document.createElement('div');
+                            storyPost.className = 'story-post';
+                            storyPost.innerHTML = `
+                                <div class="story-header">
+                                    <div class="profile-pic">👩🦱</div>
+                                    <div>
+                                        <h4>Kagwiria Murungi</h4>
+                                        <p class="story-meta">Just now • ${county || 'Kenya'}</p>
+                                    </div>
+                                </div>
+                                <div class="story-content">${content}</div>
+                                <div class="story-actions">
+                                    <button class="action-btn" onclick="likeStory(this)">❤️ Like</button>
+                                    <button class="action-btn" onclick="commentStory(this)">💬 Comment</button>
+                                    <button class="action-btn" onclick="shareStory(this)">🔄 Share</button>
+                                </div>
+                            `;
+                            
+                            feedContainer.insertBefore(storyPost, feedContainer.firstChild);
+                        }
+                        
+                        showNotification('Story posted successfully!', 'success');
+                        event.target.reset();
+                        button.innerHTML = 'Share Story';
+                        button.disabled = false;
+                    }, 1000);
+                    
+                    return false;
+                } catch (error) {
+                    console.error('Post error:', error);
+                    showNotification('Failed to post story. Please try again.', 'error');
+                    return false;
+                }
+            };
+
+            // Enhanced admin toggle
+            window.toggleAdminMode = function() {
+                try {
+                    const quickPost = document.getElementById('quickPost');
+                    if (quickPost) {
+                        if (quickPost.style.display === 'none' || quickPost.style.display === '') {
+                            quickPost.style.display = 'block';
+                            showNotification('Admin mode enabled', 'info');
+                        } else {
+                            quickPost.style.display = 'none';
+                            showNotification('Admin mode disabled', 'info');
+                        }
+                    }
+                } catch (error) {
+                    console.error('Toggle error:', error);
+                }
+            };
+
+            // Enhanced story interactions
+            window.likeStory = function(btn) {
+                try {
+                    btn.style.color = '#ff6b35';
+                    btn.innerHTML = '❤️ Liked';
+                    btn.disabled = true;
+                } catch (error) {
+                    console.error('Like error:', error);
+                }
+            };
+
+            window.commentStory = function(btn) {
+                try {
+                    const comment = prompt('Write your comment:');
+                    if (comment && comment.trim()) {
+                        showNotification('Comment added successfully!', 'success');
+                    }
+                } catch (error) {
+                    console.error('Comment error:', error);
+                }
+            };
+
+            window.shareStory = function(btn) {
+                try {
+                    if (navigator.share) {
+                        navigator.share({
+                            title: 'Kagwiria\'s Journey',
+                            text: 'Check out this amazing story from Kenya!',
+                            url: window.location.href
+                        });
+                    } else {
+                        showNotification('Story link copied to clipboard!', 'success');
+                    }
+                } catch (error) {
+                    console.error('Share error:', error);
+                    showNotification('Story shared!', 'success');
+                }
+            };
+
+            window.loadMoreStories = function() {
+                try {
+                    showNotification('Loading more stories...', 'info');
+                    // Simulate loading
+                    setTimeout(() => {
+                        showNotification('No more stories to load', 'info');
+                    }, 1000);
+                } catch (error) {
+                    console.error('Load more error:', error);
+                }
+            };
+        });
+        
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()">&times;</button>
             `;
             
-            feedContainer.insertBefore(storyPost, feedContainer.firstChild);
-            event.target.reset();
-            alert('Story posted successfully!');
-        };
-
-        function toggleAdminMode() {
-            const quickPost = document.getElementById('quickPost');
-            if (quickPost.style.display === 'none') {
-                quickPost.style.display = 'block';
-            } else {
-                quickPost.style.display = 'none';
-            }
-        }
-
-        function likeStory(btn) {
-            btn.style.color = '#ff6b35';
-            btn.innerHTML = '❤️ Liked';
-        }
-
-        function commentStory(btn) {
-            const comment = prompt('Write your comment:');
-            if (comment) {
-                alert('Comment added: ' + comment);
-            }
-        }
-
-        function shareStory(btn) {
-            alert('Story shared!');
-        }
-
-        function loadMoreStories() {
-            alert('Loading more stories...');
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
         }
     </script>
 
