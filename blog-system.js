@@ -1,6 +1,10 @@
 // Blog system for Kagwiria's stories with comments
 class BlogSystem {
     
+    constructor() {
+        this.storiesLoaded = false;
+    }
+    
     // Load and display published stories
     async loadStories() {
         try {
@@ -48,6 +52,11 @@ class BlogSystem {
                     </div>
                 </div>
                 <button onclick="openStory('${story.id}')" class="read-more-btn">Read Full Story</button>
+                <div class="story-actions" style="margin-top: 15px;">
+                    <button class="action-btn" onclick="likeStory(this)">❤️ Like</button>
+                    <button class="action-btn" onclick="commentStory(this)">💬 Comment</button>
+                    <button class="action-btn" onclick="shareStory(this)">🔄 Share</button>
+                </div>
             </div>
         `;
         
@@ -63,7 +72,7 @@ class BlogSystem {
     // Add comment to story
     async addComment(storyId, commentData) {
         try {
-            await addDoc(collection(db, 'comments'), {
+            await db.collection('comments').add({
                 storyId: storyId,
                 ...commentData,
                 timestamp: new Date(),
@@ -102,9 +111,15 @@ window.blogSystem = new BlogSystem();
 
 // Load stories when page loads
 document.addEventListener('DOMContentLoaded', function() {
-    if (document.getElementById('published-stories')) {
-        window.blogSystem.loadStories();
-    }
+    // Wait for Firebase to be ready
+    setTimeout(() => {
+        if (document.getElementById('published-stories')) {
+            window.blogSystem.loadStories();
+        }
+        if (document.getElementById('stories-feed')) {
+            window.blogSystem.loadStoriesForFeed();
+        }
+    }, 1000);
 });
 
 // Filter functionality
@@ -114,6 +129,55 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
         window.blogSystem.filterStories(filter);
     });
 });
+
+// Load stories for homepage feed
+BlogSystem.prototype.loadStoriesForFeed = async function() {
+    try {
+        const stories = await window.kagwiriaBackend.getStories();
+        const container = document.getElementById('stories-feed');
+        
+        if (!container || stories.length === 0) {
+            return;
+        }
+        
+        // Show latest 3 stories
+        const latestStories = stories.slice(0, 3);
+        
+        latestStories.forEach(story => {
+            const storyPost = document.createElement('div');
+            storyPost.className = 'story-post';
+            storyPost.innerHTML = `
+                <div class="story-header">
+                    <div class="profile-pic">👩🦱</div>
+                    <div>
+                        <h4>Kagwiria Murungi</h4>
+                        <p class="story-meta">${story.county || 'Kenya'} • ${this.formatDate(story.published)}</p>
+                    </div>
+                </div>
+                <div class="story-content">${story.content.substring(0, 200)}...</div>
+                ${story.files && story.files.length > 0 ? 
+                    `<img src="${story.files[0].url}" alt="Story image" style="width:100%; border-radius:8px; margin:10px 0;">` : 
+                    ''
+                }
+                <div class="story-actions">
+                    <button class="action-btn" onclick="likeStory(this)">❤️ Like</button>
+                    <button class="action-btn" onclick="commentStory(this)">💬 Comment</button>
+                    <button class="action-btn" onclick="shareStory(this)">🔄 Share</button>
+                </div>
+            `;
+            container.appendChild(storyPost);
+        });
+    } catch (error) {
+        console.error('Error loading stories for feed:', error);
+    }
+};
+
+// Format date helper
+BlogSystem.prototype.formatDate = function(date) {
+    if (!date) return 'Recently';
+    const d = date.toDate ? date.toDate() : new Date(date);
+    return d.toLocaleDateString();
+};
 
 // Global function for opening stories
 window.openStory = function(storyId) {
